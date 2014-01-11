@@ -1,0 +1,16 @@
+name: FriendsOnline
+description: Alerts players when their friends log into the server!
+version: 1.0
+main: com.gmail.mmonkey.FriendsOnline.FriendsOnline
+depend: [AlertAPI]
+commands:
+  notify:
+    description: Send you a text or email notification when player joins.
+    usage: |
+      /<command> [list] - View your notification list.
+      /<command> <player> - Adds player to your notification list.
+      /<command> [del] <player> - Removes player from your notification list.
+permissions:
+  friendsonline.use:
+    description: Allows players to use PlayerJoinedAlert.
+    default: op
