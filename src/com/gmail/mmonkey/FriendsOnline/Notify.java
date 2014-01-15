@@ -73,19 +73,19 @@ public class Notify implements CommandExecutor {
 
 				for(int i = 0; i < plugin.friendsList.size(); i++) {
 					if(plugin.friendsList.get(i).getName().equals(player.getName())) {
-						if(!plugin.friendsList.get(i).getNotificationList().contains(args[0])) {
-							plugin.friendsList.get(i).addNotification(args[0]);
-							player.sendMessage(ChatColor.GOLD + args[0] + ChatColor.GREEN + " has been added to your notification list!");
+						if(!plugin.friendsList.get(i).getNotificationList().contains(args[0].toLowerCase())) {
+							plugin.friendsList.get(i).addNotification(args[0].toLowerCase());
+							player.sendMessage(ChatColor.GOLD + args[0].toLowerCase() + ChatColor.GREEN + " has been added to your notification list!");
 							return true;
 						} else {
-							player.sendMessage(ChatColor.GOLD + args[0] + ChatColor.RED + " is already on your notification list!");
+							player.sendMessage(ChatColor.GOLD + args[0].toLowerCase() + ChatColor.RED + " is already on your notification list!");
 							return true;
 						}
 					}
 				}
-				Friends f = new Friends(player.getName());
+				Friends f = new Friends(player.getName().toLowerCase());
 				plugin.friendsList.add(f);
-				player.sendMessage(ChatColor.GOLD + args[0] + ChatColor.GREEN + " has been added to your notification list!");
+				player.sendMessage(ChatColor.GOLD + args[0].toLowerCase() + ChatColor.GREEN + " has been added to your notification list!");
 				return true;
 			}
 			
@@ -95,15 +95,15 @@ public class Notify implements CommandExecutor {
 			if(args[0].equalsIgnoreCase("del") || args[0].equalsIgnoreCase("delete")) {
 				
 				for(int i = 0; i < plugin.friendsList.size(); i++) {
-					if(plugin.friendsList.get(i).getName().equals(player.getName())) {
-						if(plugin.friendsList.get(i).getNotificationList().contains(args[1])) {
-							plugin.friendsList.get(i).removeNotification(args[1]);
-							player.sendMessage(ChatColor.GOLD + args[1] + ChatColor.GREEN + " has been removed from your notification list!");
+					if(plugin.friendsList.get(i).getName().equalsIgnoreCase(player.getName())) {
+						if(plugin.friendsList.get(i).getNotificationList().contains(args[1].toLowerCase())) {
+							plugin.friendsList.get(i).removeNotification(args[1].toLowerCase());
+							player.sendMessage(ChatColor.GOLD + args[1].toLowerCase() + ChatColor.GREEN + " has been removed from your notification list!");
 							return true;
 						}
 					}
 				}
-				player.sendMessage(ChatColor.GOLD + args[1] + ChatColor.RED + " is not on your notification list, nothing to remove!");
+				player.sendMessage(ChatColor.GOLD + args[1].toLowerCase() + ChatColor.RED + " is not on your notification list, nothing to remove!");
 				return true;
 				
 			//Command not understood (invalid argument)	

@@ -33,12 +33,16 @@ public class PlayerJoin implements Listener {
 			
 			//If this is the last iteration, send the message
 			if(i == plugin.friendsList.size() - 1) {
-				SendResult result = AlertAPI.send(recipients, message);
 				
-				if(result.isSent()) {
-					//plugin.log.info("[FriendsOnline] Message Sent!"); //Console spam, used for debugging.
-				} else {
-					plugin.log.info("[FriendsOnline] " + result.toString());
+				//Check if recipients list is empty or null
+				if(!recipients.isEmpty() || recipients != null) {
+					SendResult result = AlertAPI.send(recipients, message);
+					
+					if(result.isSent()) {
+						//plugin.log.info("[FriendsOnline] Message Sent!"); //Console spam, used for debugging.
+					} else {
+						plugin.log.info("[FriendsOnline] " + result.toString());
+					}
 				}
 			}
 		}

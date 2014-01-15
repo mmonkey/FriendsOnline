@@ -1,6 +1,7 @@
 name: FriendsOnline
 description: Alerts players when their friends log into the server!
-version: 1.0
+version: 1.1
+author: mmonkey
 main: com.gmail.mmonkey.FriendsOnline.FriendsOnline
 depend: [AlertAPI]
 commands:
